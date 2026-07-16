@@ -1,0 +1,107 @@
+:root {
+  --bg: #EEF1F6;
+  --panel: #FFFFFF;
+  --ink: #1B2233;
+  --muted: #6B7385;
+  --line: #D8DEE9;
+  --accent: #4F46E5;
+  --accent-soft: #EEF0FF;
+  --total-bg: #1B2233;
+  --total-ink: #F5F7FB;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+.mono { font-family: "SF Mono", "Cascadia Code", Consolas, "Courier New", monospace; }
+
+.card {
+  background: var(--panel);
+  width: 100%;
+  max-width: 520px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(27,34,51,.08);
+}
+.card-header {
+  padding: 24px 28px 18px;
+  border-bottom: 1px dashed var(--line);
+}
+.card-header h1 { font-size: 1.15rem; font-weight: 700; letter-spacing: -.01em; }
+.card-header p { color: var(--muted); font-size: .85rem; margin-top: 4px; }
+
+.card-body { padding: 24px 28px; display: grid; gap: 20px; }
+
+label {
+  display: block;
+  font-size: .72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .07em;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+select, input[type="number"] {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: .95rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #FBFCFE;
+  color: var(--ink);
+  outline: none;
+  transition: border-color .15s, box-shadow .15s;
+}
+select:focus, input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+input[type="number"] { font-family: "SF Mono", "Cascadia Code", Consolas, monospace; }
+
+.row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+.price-box {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 14px;
+  background: var(--accent-soft);
+}
+.price-box .box-title {
+  font-size: .72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .07em;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+.price-box input { background: #FFFFFF; }
+.hint { font-size: .72rem; color: var(--muted); margin-top: 8px; }
+
+.breakdown {
+  border-top: 1px dashed var(--line);
+  padding-top: 16px;
+  display: grid;
+  gap: 8px;
+  font-size: .88rem;
+}
+.breakdown .line { display: flex; justify-content: space-between; color: var(--muted); }
+.breakdown .line span:last-child { color: var(--ink); }
+
+.total {
+  background: var(--total-bg);
+  color: var(--total-ink);
+  padding: 20px 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.total .label { font-size: .75rem; text-transform: uppercase; letter-spacing: .1em; opacity: .7; }
+.total .amount { font-size: 1.8rem; font-weight: 700; }
