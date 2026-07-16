@@ -2,7 +2,8 @@ const PRECIOS = {
   "claude-haiku-4-5-20251001": { entrada: 1.00,  salida: 5.00  },
   "claude-sonnet-5":           { entrada: 3.00,  salida: 15.00 },
   "claude-opus-4-8":           { entrada: 5.00,  salida: 25.00 },
-  "claude-fable-5":            { entrada: 10.00, salida: 50.00 }
+  "claude-fable-5":            { entrada: 10.00, salida: 50.00 },
+  "modelo-manual":             { entrada: 0.00, salida: 0.00 }
 };
 
 const $ = id => document.getElementById(id);
