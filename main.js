@@ -1,9 +1,12 @@
 const PRECIOS = {
-  "claude-haiku-4-5-20251001": { entrada: 1.00,  salida: 5.00  },
-  "claude-sonnet-5":           { entrada: 3.00,  salida: 15.00 },
-  "claude-opus-4-8":           { entrada: 5.00,  salida: 25.00 },
-  "claude-fable-5":            { entrada: 10.00, salida: 50.00 },
-  "modelo-manual":             { entrada: 0.00, salida: 0.00 }
+  "claude-haiku-4-5-20251001": { etiqueta: "claude-haiku-4-5-20251001",     entrada: 1.00,  salida: 5.00  },
+  "claude-sonnet-5":           { etiqueta: "claude-sonnet-5",               entrada: 3.00,  salida: 15.00 },
+  "claude-opus-4-8":           { etiqueta: "claude-opus-4-8",               entrada: 5.00,  salida: 25.00 },
+  "claude-fable-5":            { etiqueta: "claude-fable-5",                entrada: 10.00, salida: 50.00 },
+  "gemini-2-5-flash":          { etiqueta: "Gemini 2.5 Flash",              entrada: 0.30,  salida: 2.50  },
+  "gemini-3-5-flash":          { etiqueta: "Gemini 3.5 Flash",              entrada: 1.50,  salida: 9.00  },
+  "gemini-3-1-pro-200k":       { etiqueta: "Gemini 3.1 Pro (>200K tokens)", entrada: 4.00,  salida: 18.00 },
+  "modelo-manual":             { etiqueta: "Modelo Manual",                 entrada: 0.00,  salida: 0.00  }
 };
 
 const $ = id => document.getElementById(id);
@@ -41,5 +44,13 @@ modelo.addEventListener("change", setPreciosDesdeModelo);
 
 [precioEntrada, precioSalida, tokensEntrada, tokensSalida]
   .forEach(el => el.addEventListener("input", calcular));
-  
+
+function poblarSelect() {
+  modelo.innerHTML = "";
+  Object.entries(PRECIOS).forEach(([valor, { etiqueta }]) => {
+    modelo.appendChild(new Option(etiqueta, valor));
+  });
+}
+
+poblarSelect();
 setPreciosDesdeModelo();
